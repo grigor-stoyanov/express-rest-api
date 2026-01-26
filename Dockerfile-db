@@ -1,0 +1,16 @@
+FROM postgres:16
+
+RUN mkdir -p /var/lib/postgresql/ssl \
+    && chown postgres:postgres /var/lib/postgresql/ssl \
+    && chmod 700 /var/lib/postgresql/ssl
+
+RUN openssl genrsa -out /var/lib/postgresql/ssl/server.key 2048 \
+    && openssl req -new -x509 \
+      -key /var/lib/postgresql/ssl/server.key \
+      -out /var/lib/postgresql/ssl/server.crt \
+      -days 365 \
+      -subj "/CN=postgres" \
+    && chown postgres:postgres /var/lib/postgresql/ssl/server.* \
+    && chmod 600 /var/lib/postgresql/ssl/server.key
+
+CMD ["postgres", "-c", "ssl=on", "-c", "ssl_cert_file=/var/lib/postgresql/ssl/server.crt", "-c", "ssl_key_file=/var/lib/postgresql/ssl/server.key"]

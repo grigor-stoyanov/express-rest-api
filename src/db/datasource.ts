@@ -1,0 +1,21 @@
+import { DataSource } from "typeorm";
+import { Recipe } from "./models/recipe";
+import { Ingredient } from "./models/ingredient";
+
+export const AppDataSource = new DataSource({
+    type:"postgres",
+    host:process.env.DB_HOST,
+    username:process.env.DB_USER,
+    password:process.env.DB_PASSWORD,
+    port: Number.parseInt(process.env.DB_PORT),
+    database:process.env.DB_NAME,
+    ssl:{
+        rejectUnauthorized:false
+    },
+    entities:[
+        Recipe,
+        Ingredient
+    ],
+    synchronize: process.env.ENVIRONMENT == 'DEVELOPMENT',
+    logging:true
+});

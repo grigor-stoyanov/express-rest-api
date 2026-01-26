@@ -6,16 +6,18 @@ if (envs.error) {
   console.error("Error loading environment variables, aborting...");
   process.exit(0);
 }
-
 import express from "express";
 import { ping } from "./routes/health";
 import { isInteger } from "./utils/utils";
 import { logger } from "./logger";
+import { AppDataSource } from "./db/datasource";
+import { getAllRecipes } from "./db/services/recipe_service";
 
 const app = express();
 
 function setupExpress() {
   app.route("/ping").get(ping);
+  app.route("/api/recipes").get(getAllRecipes);
 }
 
 function startServer() {
@@ -34,5 +36,9 @@ function startServer() {
   );
 }
 
-setupExpress();
-startServer();
+AppDataSource.initialize()
+  .then(()=>{
+    setupExpress();
+    startServer();
+  })
+  .catch((err)=>logger.info(`Error initializing data source`,err))

@@ -4,7 +4,7 @@ services:
   api:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile-app
     container_name: express_api
     depends_on:
       - db
@@ -16,7 +16,9 @@ services:
       - "${PORT}:${PORT}"
 
   db:
-    image: postgres:16
+    build:
+      context: .
+      dockerfile: Dockerfile-db
     container_name: postgres_db
     restart: always
     environment:
