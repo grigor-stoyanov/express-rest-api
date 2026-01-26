@@ -9,15 +9,17 @@ if (envs.error) {
 import express from "express";
 import { ping } from "./routes/health";
 import { isInteger } from "./utils/utils";
-import { logger } from "./logger";
+import { logger } from "./utils/logger";
 import { AppDataSource } from "./db/datasource";
-import { getAllRecipes } from "./db/services/recipe_service";
+import { recipeRouter } from "./routes/recipe.route";
+import defaultErrorFunction from "./middlewares/default.error.handler";
 
 const app = express();
 
 function setupExpress() {
   app.route("/ping").get(ping);
-  app.route("/api/recipes").get(getAllRecipes);
+  app.use("/api", recipeRouter);
+  app.use(defaultErrorFunction);
 }
 
 function startServer() {
@@ -29,16 +31,16 @@ function startServer() {
   } else if (isInteger(portArg)) {
     port = Number.parseInt(portArg);
   } else {
-    port=9000
+    port = 9000;
   }
-  app.listen(port ,() =>
-      logger.info(`HTTP REST API server running at http://localhost:${port}`)
+  app.listen(port, () =>
+    logger.info(`HTTP REST API server running at http://localhost:${port}`),
   );
 }
 
 AppDataSource.initialize()
-  .then(()=>{
+  .then(() => {
     setupExpress();
     startServer();
   })
-  .catch((err)=>logger.info(`Error initializing data source`,err))
+  .catch((err) => logger.info(`Error initializing data source`, err));
