@@ -14,6 +14,7 @@
         "sourceMap": true,
         "noImplicitAny": true,
         "strictNullChecks": true,
-        "inlineSources": true
+        "inlineSources": true,
+        "strict": true
     }
 }

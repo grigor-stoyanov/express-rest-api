@@ -1,7 +1,7 @@
 import { logger } from "./logger";
 
 export function Perf():MethodDecorator{
-    return (target:any, propertyKey:string, descriptor:PropertyDescriptor) =>{
+    return (target:any, propertyKey:string|symbol, descriptor:PropertyDescriptor) =>{
         const originalFunction:Function = descriptor.value;
         descriptor.value = function (...args: any[]){
             const start = Date.now();

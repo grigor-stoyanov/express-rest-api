@@ -38,3 +38,21 @@ recipeRouter.post("/recipes",
     res.status(201).json(recipe);
   })
 );
+
+recipeRouter.patch<{id:string}>("/recipes/:id",
+  asyncHandler(async(req,res)=>{
+    const id = req.params.id;
+    const body = req.body;
+    const recipe = await RecipeService.updateRecipeById(id,body);
+    res.status(200).json({recipe});
+  })
+)
+
+recipeRouter.delete<{id:string}>("/recipes/:id",
+  asyncHandler(async(req, res)=>{
+    const id = req.params.id;
+    await RecipeService.deleteRecipeById(id);
+    res.status(200).json({"message":"Deleted Successfully"});
+  })
+
+)

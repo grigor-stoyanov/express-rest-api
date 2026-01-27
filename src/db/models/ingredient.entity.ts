@@ -8,11 +8,11 @@ import { RecipeIngredient } from "./recipie.ingredients.entity";
 })
 export class Ingredient implements IngredientInterface{
     @PrimaryGeneratedColumn()
-    id:number;
+    id!:number;
 
     @Column()
-    name:string;
+    name!:string;
 
     @OneToMany(() => RecipeIngredient, ri => ri.ingredient)
-    usages: RecipeIngredient[];
+    usages!: RecipeIngredient[];
 }   

@@ -19,7 +19,7 @@ import { ingredientRouter } from "./routes/ingredient.route";
 const app = express();
 
 function setupExpress() {
-  app.use(cors({origin:'*',methods:"GET,POST,PATCH,DELETE",allowedHeaders:"Content-type"}));
+  app.use(cors({origin:true}));
   app.use(express.json());
   app.route("/ping").get(ping);
   app.use("/api", recipeRouter);

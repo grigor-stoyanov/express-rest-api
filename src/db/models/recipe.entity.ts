@@ -14,23 +14,23 @@ import { RecipeIngredient } from "./recipie.ingredients.entity";
 })
 export class Recipe implements RecipeInterface {
   @PrimaryGeneratedColumn()
-  id: number;
+  id!: number;
 
   @Column()
-  title: string;
+  title!: string;
 
   @Column()
-  iconUrl: string;
+  iconUrl!: string;
 
   @CreateDateColumn()
-  created: Date;
+  created!: Date;
 
   @Column()
-  instructions: string;
+  instructions!: string;
 
   @Column()
-  cooktime: number;
+  cooktime!: number;
 
   @OneToMany(() => RecipeIngredient, ri => ri.recipe, { cascade: true })
-  ingredients: RecipeIngredient[];
+  ingredients!: RecipeIngredient[];
 }
