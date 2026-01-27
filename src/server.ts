@@ -7,18 +7,23 @@ if (envs.error) {
   process.exit(0);
 }
 import express from "express";
+const cors = require('cors');
 import { ping } from "./routes/health";
 import { isInteger } from "./utils/utils";
 import { logger } from "./utils/logger";
 import { AppDataSource } from "./db/datasource";
 import { recipeRouter } from "./routes/recipe.route";
 import defaultErrorFunction from "./middlewares/default.error.handler";
+import { ingredientRouter } from "./routes/ingredient.route";
 
 const app = express();
 
 function setupExpress() {
+  app.use(cors({origin:'*',methods:"GET,POST,PATCH,DELETE",allowedHeaders:"Content-type"}));
+  app.use(express.json());
   app.route("/ping").get(ping);
   app.use("/api", recipeRouter);
+  app.use("/api", ingredientRouter);
   app.use(defaultErrorFunction);
 }
 

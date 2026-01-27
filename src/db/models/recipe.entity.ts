@@ -2,16 +2,17 @@ import {
   Column,
   CreateDateColumn,
   Entity,
-  JoinTable,
-  ManyToMany,
+  OneToMany,
   PrimaryGeneratedColumn,
 } from "typeorm";
-import { Ingredient } from "./ingredient.entity";
+import { RecipeInterface } from "../../interfaces";
+import { RecipeIngredient } from "./recipie.ingredients.entity";
+
 
 @Entity({
   name: "RECIPES",
 })
-export class Recipe {
+export class Recipe implements RecipeInterface {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -22,7 +23,7 @@ export class Recipe {
   iconUrl: string;
 
   @CreateDateColumn()
-  created: string;
+  created: Date;
 
   @Column()
   instructions: string;
@@ -30,17 +31,6 @@ export class Recipe {
   @Column()
   cooktime: number;
 
-  @ManyToMany(() => Ingredient, (ingredient) => ingredient.recipes)
-  @JoinTable({
-    name: "recipie_ingredients",
-    joinColumn: {
-      name: "recipe_id",
-      referencedColumnName: "id",
-    },
-    inverseJoinColumn: {
-      name: "ingredient_id",
-      referencedColumnName: "id",
-    },
-  })
-  ingredients: Ingredient[];
+  @OneToMany(() => RecipeIngredient, ri => ri.recipe, { cascade: true })
+  ingredients: RecipeIngredient[];
 }

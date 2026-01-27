@@ -14,6 +14,8 @@ services:
       - .:/app
     ports:
       - "${PORT}:${PORT}"
+      - "3000:3000"
+      - "9229:9229"
 
   db:
     build:

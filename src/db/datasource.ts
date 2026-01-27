@@ -1,6 +1,8 @@
 import { DataSource } from "typeorm";
 import { Recipe } from "./models/recipe.entity";
 import { Ingredient } from "./models/ingredient.entity";
+import { RecipeIngredient } from "./models/recipie.ingredients.entity";
+
 
 export const AppDataSource = new DataSource({
     type:"postgres",
@@ -14,7 +16,8 @@ export const AppDataSource = new DataSource({
     },
     entities:[
         Recipe,
-        Ingredient
+        Ingredient,
+        RecipeIngredient
     ],
     synchronize: process.env.ENVIRONMENT == 'DEVELOPMENT',
     logging:true
