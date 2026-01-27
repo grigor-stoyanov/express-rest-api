@@ -15,6 +15,7 @@ import { AppDataSource } from "./db/datasource";
 import { recipeRouter } from "./routes/recipe.route";
 import defaultErrorFunction from "./middlewares/default.error.handler";
 import { ingredientRouter } from "./routes/ingredient.route";
+import { userRouter } from "./routes/user.route";
 
 const app = express();
 
@@ -24,6 +25,7 @@ function setupExpress() {
   app.route("/ping").get(ping);
   app.use("/api", recipeRouter);
   app.use("/api", ingredientRouter);
+  app.use("/api",userRouter);
   app.use(defaultErrorFunction);
 }
 

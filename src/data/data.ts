@@ -164,3 +164,20 @@ export const SAMPLE_RECIPES: RecipeDTO[] = [
     ]
   }
 ];
+
+export const USERS = {
+  1: {
+    "email":"example@email.com",
+    "plainTextPassword":"password",
+    "passwordSalt":"b4sJaS4aisu1jd",
+    "pictureUrl":"http://picture.example.com",
+    "isAdmin":false
+  },
+    2: {
+    "email":"admin@email.com",
+    "plainTextPassword":"topsecret",
+    "passwordSalt":"X3t2gFDSasd",
+    "pictureUrl":"http://picture.example.com",
+    "isAdmin":true
+  }
+}

@@ -2,6 +2,7 @@ import { DataSource } from "typeorm";
 import { Recipe } from "./models/recipe.entity";
 import { Ingredient } from "./models/ingredient.entity";
 import { RecipeIngredient } from "./models/recipie.ingredients.entity";
+import { User } from "./models/users.entity";
 
 
 export const AppDataSource = new DataSource({
@@ -17,7 +18,8 @@ export const AppDataSource = new DataSource({
     entities:[
         Recipe,
         Ingredient,
-        RecipeIngredient
+        RecipeIngredient,
+        User
     ],
     synchronize: process.env.ENVIRONMENT == 'DEVELOPMENT',
     logging:true

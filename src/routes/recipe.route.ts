@@ -3,6 +3,8 @@ import { RecipeService } from "../db/services/recipe.service";
 import { asyncHandler } from "../utils/utils";
 import createHttpError from "http-errors";
 import { logger } from "../utils/logger";
+import { checkIfAuthenticated } from "../middlewares/authentication.middleware";
+import { checkIfAdmin } from "../middlewares/admin.middleware";
 
 export const recipeRouter = Router();
 
@@ -32,6 +34,8 @@ recipeRouter.get<{id:string}>(
 );
 
 recipeRouter.post("/recipes",
+  checkIfAuthenticated,
+  checkIfAdmin,
   asyncHandler(async (req,res)=> {
     const body = req.body;
     const recipe = await RecipeService.createRecipie(body);
@@ -40,6 +44,8 @@ recipeRouter.post("/recipes",
 );
 
 recipeRouter.patch<{id:string}>("/recipes/:id",
+  checkIfAuthenticated,
+  checkIfAdmin,
   asyncHandler(async(req,res)=>{
     const id = req.params.id;
     const body = req.body;
@@ -49,6 +55,8 @@ recipeRouter.patch<{id:string}>("/recipes/:id",
 )
 
 recipeRouter.delete<{id:string}>("/recipes/:id",
+  checkIfAuthenticated,
+  checkIfAdmin,
   asyncHandler(async(req, res)=>{
     const id = req.params.id;
     await RecipeService.deleteRecipeById(id);
