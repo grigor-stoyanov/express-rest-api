@@ -3,7 +3,7 @@ import { RecipeDTO } from "../interfaces";
 export const SAMPLE_RECIPES: RecipeDTO[] = [
   {
     title: "Pancakes",
-    iconUrl: "https://example.com/pancakes.png",
+    iconUrl: "https://www.themealdb.com/images/media/meals/rwuyqx1511383174.jpg",
     instructions: "Mix ingredients and fry until golden.",
     cooktime: 15,
     ingredients: [
@@ -14,7 +14,7 @@ export const SAMPLE_RECIPES: RecipeDTO[] = [
   },
   {
     title: "Tomato Soup",
-    iconUrl: "https://example.com/tomato-soup.png",
+    iconUrl: "https://www.themealdb.com/images/media/meals/stpuws1511191310.jpg",
     instructions: "Boil tomatoes, blend, season, and simmer.",
     cooktime: 25,
     ingredients: [
@@ -25,7 +25,7 @@ export const SAMPLE_RECIPES: RecipeDTO[] = [
   },
   {
     title: "Garlic Bread",
-    iconUrl: "https://example.com/garlic-bread.png",
+    iconUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Garlic_bread.jpg/480px-Garlic_bread.jpg",
     instructions: "Spread garlic butter on bread and bake.",
     cooktime: 10,
     ingredients: [
@@ -36,7 +36,7 @@ export const SAMPLE_RECIPES: RecipeDTO[] = [
   },
   {
     title: "Omelette",
-    iconUrl: "https://example.com/omelette.png",
+    iconUrl: "https://www.themealdb.com/images/media/meals/yvpuuy1511797244.jpg",
     instructions: "Beat eggs, season, and cook in butter.",
     cooktime: 5,
     ingredients: [
@@ -47,7 +47,7 @@ export const SAMPLE_RECIPES: RecipeDTO[] = [
   },
   {
     title: "Beef Tacos",
-    iconUrl: "https://example.com/beef-tacos.png",
+    iconUrl: "https://www.themealdb.com/images/media/meals/ypxvwv1505333929.jpg",
     instructions: "Cook beef with spices, assemble in tortillas.",
     cooktime: 20,
     ingredients: [
@@ -59,7 +59,7 @@ export const SAMPLE_RECIPES: RecipeDTO[] = [
   },
   {
     title: "Caesar Salad",
-    iconUrl: "https://example.com/caesar-salad.png",
+    iconUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Caesar_salad_%281%29.jpg/480px-Caesar_salad_%281%29.jpg",
     instructions: "Chop lettuce, add dressing, croutons, and cheese.",
     cooktime: 10,
     ingredients: [
@@ -71,7 +71,7 @@ export const SAMPLE_RECIPES: RecipeDTO[] = [
   },
   {
     title: "Fried Rice",
-    iconUrl: "https://example.com/fried-rice.png",
+    iconUrl: "https://www.themealdb.com/images/media/meals/wuyd2h1765655837.jpg",
     instructions: "Stir fry rice with vegetables and soy sauce.",
     cooktime: 15,
     ingredients: [
@@ -84,7 +84,7 @@ export const SAMPLE_RECIPES: RecipeDTO[] = [
   },
   {
     title: "Chicken Alfredo",
-    iconUrl: "https://example.com/chicken-alfredo.png",
+    iconUrl: "https://www.themealdb.com/images/media/meals/syqypv1486981727.jpg",
     instructions: "Cook pasta, prepare creamy sauce, mix with chicken.",
     cooktime: 25,
     ingredients: [
@@ -96,7 +96,7 @@ export const SAMPLE_RECIPES: RecipeDTO[] = [
   },
   {
     title: "Grilled Cheese Sandwich",
-    iconUrl: "https://example.com/grilled-cheese.png",
+    iconUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Grilled_cheese_sandwich.jpg/480px-Grilled_cheese_sandwich.jpg",
     instructions: "Butter bread, add cheese, grill until golden.",
     cooktime: 5,
     ingredients: [
@@ -107,7 +107,7 @@ export const SAMPLE_RECIPES: RecipeDTO[] = [
   },
   {
     title: "Banana Smoothie",
-    iconUrl: "https://example.com/banana-smoothie.png",
+    iconUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3n/Banana_smoothie.jpg/480px-Banana_smoothie.jpg",
     instructions: "Blend banana, milk, and honey until smooth.",
     cooktime: 3,
     ingredients: [
@@ -118,7 +118,7 @@ export const SAMPLE_RECIPES: RecipeDTO[] = [
   },
   {
     title: "Mashed Potatoes",
-    iconUrl: "https://example.com/mashed-potatoes.png",
+    iconUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Mashed_potato.jpg/480px-Mashed_potato.jpg",
     instructions: "Boil potatoes, mash with butter and milk.",
     cooktime: 20,
     ingredients: [
@@ -130,7 +130,7 @@ export const SAMPLE_RECIPES: RecipeDTO[] = [
   },
   {
     title: "Stir Fry Chicken",
-    iconUrl: "https://example.com/stir-fry-chicken.png",
+    iconUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Chicken_stir_fry.jpg/480px-Chicken_stir_fry.jpg",
     instructions: "Cook chicken, add vegetables, stir fry with sauce.",
     cooktime: 18,
     ingredients: [
@@ -142,7 +142,7 @@ export const SAMPLE_RECIPES: RecipeDTO[] = [
   },
   {
     title: "Avocado Toast",
-    iconUrl: "https://example.com/avocado-toast.png",
+    iconUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Avocado_toast_with_egg.jpg/480px-Avocado_toast_with_egg.jpg",
     instructions: "Toast bread, mash avocado, spread and season.",
     cooktime: 5,
     ingredients: [
@@ -153,7 +153,7 @@ export const SAMPLE_RECIPES: RecipeDTO[] = [
   },
   {
     title: "Baked Salmon",
-    iconUrl: "https://example.com/baked-salmon.png",
+    iconUrl: "https://www.themealdb.com/images/media/meals/1548772327.jpg",
     instructions: "Season salmon and bake until flaky.",
     cooktime: 15,
     ingredients: [
@@ -170,14 +170,14 @@ export const USERS = {
     "email":"example@email.com",
     "plainTextPassword":"password",
     "passwordSalt":"b4sJaS4aisu1jd",
-    "pictureUrl":"http://picture.example.com",
+    "pictureUrl":"https://i.pravatar.cc/150?img=3",
     "isAdmin":false
   },
     2: {
     "email":"admin@email.com",
     "plainTextPassword":"topsecret",
     "passwordSalt":"X3t2gFDSasd",
-    "pictureUrl":"http://picture.example.com",
+    "pictureUrl":"https://i.pravatar.cc/150?img=5",
     "isAdmin":true
   }
 }

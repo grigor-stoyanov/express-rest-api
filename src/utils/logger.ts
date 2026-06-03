@@ -3,9 +3,10 @@ import * as winston from 'winston';
 
 export const logger = winston.createLogger({
     level: process.env.LOGGER_LEVEL ?? "error",
-    format: winston.format.json({
-        space: 4
-    }),
+    format: winston.format.combine(
+        winston.format.errors({ stack: true }),
+        winston.format.json({ space: 4 })
+    ),
     transports: [
         new winston.transports.File({
             filename: "logs/all.log"

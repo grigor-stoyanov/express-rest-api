@@ -1,4 +1,9 @@
 {
+    "watchOptions": {
+        "watchFile": "fixedPollingInterval",
+        "watchDirectory": "fixedPollingInterval",
+        "fallbackPolling": "dynamicPriority"
+    },
     "compilerOptions": {
         "target": "es5",
         "module": "commonjs",

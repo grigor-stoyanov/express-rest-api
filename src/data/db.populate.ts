@@ -1,3 +1,4 @@
+import "dotenv/config"
 import { AppDataSource } from "../db/datasource";
 import { User } from "../db/models/users.entity";
 import { RecipeService } from "../db/services/recipe.service";

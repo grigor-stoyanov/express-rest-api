@@ -16,6 +16,8 @@ services:
       - "${PORT}:${PORT}"
       - "3000:3000"
       - "9229:9229"
+    environment:
+      - CHOKIDAR_USEPOLLING=1
 
   db:
     build:
